@@ -5,8 +5,8 @@ class EmailSpammner:
     
     def __init__(self, message):
         self.message = [message]
-        self.model_cls = "/home/antares/Documents/anka/Job/Hidup/MachineLearning/dataset/World/Email-filtering/Model_1/email_spam.pkl"
-        self.vectorizer = "/home/antares/Documents/anka/Job/Hidup/MachineLearning/dataset/World/Email-filtering/Model_1/vectorizer.pkl"
+        self.model_cls = "email_spam_v2.pkl" # Model for email spam
+        self.vectorizer = "vectorizer_v2.pkl" # Vectorizer, it'll used for vectorizer the text input
 
 
     def vectorizerMessage(self):
@@ -31,6 +31,11 @@ class EmailSpammner:
             print("The message is a spam!")
         elif pred == 0:
             print("The message not a spam!")
-
+            
     def run(self):
         self.predictor()
+
+
+if __name__ == '__main__':
+    email = EmailSpammer('Congrats! You won a $1000. Please follow this step to get your money! [Link]')
+    email.run()
